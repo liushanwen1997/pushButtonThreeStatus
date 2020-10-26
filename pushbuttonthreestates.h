@@ -7,7 +7,10 @@
 #include <QEvent>
 #include <QPalette>
 #include <QStyleOption>
+#include <QStyleOptionButton>
 #include <QPainter>
+#include <QStyle>
+#include <QCommonStyle>
 
 class pushbuttonThreeStates : public QPushButton
 {

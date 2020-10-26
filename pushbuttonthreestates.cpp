@@ -36,8 +36,8 @@ void pushbuttonThreeStates::mouseReleaseEvent(QMouseEvent *e)
 
 void pushbuttonThreeStates::paintEvent(QPaintEvent *e)
 {
-    QStyleOption opt;
-    opt.init(this);
+    QStyleOptionButton opt;
+    initStyleOption(&opt);
     QPainter p(this);
     QPainterPath path;
     opt.rect.adjust(0,0,0,0);
@@ -65,4 +65,5 @@ void pushbuttonThreeStates::paintEvent(QPaintEvent *e)
     p.drawRoundedRect(opt.rect, 28, 28);
     p.setRenderHint(QPainter::Antialiasing); //反锯齿
     style()->drawControl(QStyle::CE_PushButton, &opt, &p, this);
+    style()->drawControl(QStyle::CE_PushButtonLabel, &opt, &p, this);
 }

@@ -5,7 +5,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Widget w;
-    w.show();
+    pushbuttonThreeStates button;
+    button.setFixedSize(56, 56);
+    button.setIcon(QIcon::fromTheme("ukui-icon-eyeprotectionmode"));
+    button.show();
     return a.exec();
 }
