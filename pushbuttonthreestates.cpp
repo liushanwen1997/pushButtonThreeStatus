@@ -45,23 +45,24 @@ void pushbuttonThreeStates::paintEvent(QPaintEvent *e)
     switch (status) {
         case NORMAL:
              p.setBrush(QBrush(Qt::red));
-             p.setOpacity(0);
+             opt.palette.setColor(QPalette::Highlight, QColor(Qt::red));
+             p.setOpacity(1);
             break;
         case HOVER:
-             p.setBrush(QBrush(Qt::white));
+             p.setBrush(QBrush(Qt::green));
+             opt.palette.setColor(QPalette::Highlight, QColor(Qt::green));
              p.setOpacity(1);
             break;
         case PRESS:
              p.setBrush(QBrush(Qt::black));
+             opt.palette.setColor(QPalette::Highlight, QColor(Qt::black));
              p.setOpacity(1);
             break;
         default:
             break;
     }
     p.setPen(Qt::NoPen);
-    p.drawRoundedRect(opt.rect, 6, 6);
+    p.drawRoundedRect(opt.rect, 28, 28);
     p.setRenderHint(QPainter::Antialiasing); //反锯齿
-    setProperty("blurRegion", QRegion(path.toFillPolygon().toPolygon()));
-    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
-    QWidget::paintEvent(e);
+    style()->drawControl(QStyle::CE_PushButton, &opt, &p, this);
 }
